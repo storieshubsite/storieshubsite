@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: storieshubsite/storieshubsite   # your GitHub username/repo
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "stories"
+    label: "Stories"
+    folder: "stories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string", default: "Stories Hub" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Content", name: "body", widget: "markdown" }
