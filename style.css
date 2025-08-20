@@ -1,0 +1,108 @@
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --brand:#4f46e5;
+  --brand-600:#4338ca;
+  --ring:#e5e7eb;
+  --shadow:0 10px 20px rgba(0,0,0,.06);
+  --radius:16px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,'Helvetica Neue',Arial,sans-serif;line-height:1.6}
+img,video{max-width:100%;height:auto}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Header / Nav */
+header{background:#fff;box-shadow:0 1px 0 var(--ring);position:sticky;top:0;z-index:20}
+.header-inner{max-width:1200px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+nav a{margin:0 10px;color:var(--text);font-weight:500}
+nav a:hover{color:var(--brand)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand__logo{width:32px;height:32px}
+.brand__title{font-size:1.5rem;font-weight:800;color:var(--brand)}
+
+/* Layout helpers */
+.container{max-width:1200px;margin:0 auto;padding:16px}
+.section{padding:56px 16px}
+.center{text-align:center}
+.hidden{display:none !important}
+
+/* Hero */
+.hero{padding:72px 16px;text-align:center}
+.hero h1{font-size:clamp(2rem,4vw,3rem);margin:0 0 12px}
+.hero p{color:var(--muted);max-width:720px;margin:0 auto}
+
+/* Cards / Grid (Stories) */
+#storiesGrid{display:grid;grid-template-columns:1fr;gap:24px}
+@media (min-width:640px){#storiesGrid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){#storiesGrid{grid-template-columns:repeat(3,1fr)}}
+
+#storiesGrid article{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:20px;
+  display:flex;flex-direction:column;
+  transition:transform .08s ease, box-shadow .2s ease;
+}
+#storiesGrid article:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.08)}
+#storiesGrid h3{margin:0 0 6px;font-size:1.25rem}
+#storiesGrid .meta{font-size:.9rem;color:var(--muted);margin-bottom:10px}
+.badge{display:inline-block;font-size:.75rem;background:#eef2ff;color:#3730a3;border-radius:999px;padding:.2rem .55rem}
+
+/* Search inputs */
+#searchInput, #adminSearch{
+  width:100%;
+  max-width:360px;
+  border:1px solid var(--ring);
+  background:#fff;
+  padding:10px 12px;border-radius:12px;outline:none;
+}
+#searchInput:focus, #adminSearch:focus{border-color:#c7d2fe;box-shadow:0 0 0 4px rgba(99,102,241,.15)}
+
+/* Footer */
+footer{background:#fff;box-shadow:inset 0 1px 0 var(--ring);padding:16px;text-align:center;color:var(--muted)}
+
+/* Forms (About/Contact/Admin) */
+form{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:20px}
+input[type="text"], input[type="email"], select, textarea{
+  width:100%;border:1px solid var(--ring);border-radius:12px;
+  padding:10px 12px;background:#fff;outline:none;transition:border .15s ease, box-shadow .15s ease;
+}
+textarea{min-height:160px;resize:vertical}
+input:focus, select:focus, textarea:focus{border-color:#c7d2fe;box-shadow:0 0 0 4px rgba(99,102,241,.12)}
+
+/* Buttons */
+button, .btn{
+  display:inline-block;border:0;border-radius:12px;padding:10px 16px;
+  background:var(--brand);color:#fff;font-weight:600;cursor:pointer;
+  box-shadow:0 6px 14px rgba(79,70,229,.2);transition:background .2s, transform .06s ease;
+}
+button:hover,.btn:hover{background:var(--brand-600)}
+button:active,.btn:active{transform:translateY(1px)}
+.btn--secondary{background:#eef2ff;color:#3730a3}
+.btn--ghost{background:#f3f4f6;color:var(--text)}
+
+/* Admin list */
+#adminList > div{
+  background:#fff;border:1px solid var(--ring);border-radius:14px;padding:12px;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+}
+#adminList .edit{background:#f3f4f6}
+#adminList .delete{background:#dc2626;color:#fff}
+#adminList .delete:hover{background:#b91c1c}
+
+/* Utility spacing if you add classes later */
+.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}
+.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}
+.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}
+
+/* Make header nav wrap on small screens */
+@media (max-width:480px){
+  .header-inner{flex-wrap:wrap}
+  nav{width:100%;display:flex;justify-content:center;flex-wrap:wrap;margin-top:8px}
+}

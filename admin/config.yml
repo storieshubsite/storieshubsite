@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: storieshubsite/storieshubsite   # your repo name
+  branch: main
+
+media_folder: "assets/uploads"   # where uploaded images go
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "stories"
+    label: "Stories"
+    folder: "content/stories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Content", name: "body", widget: "markdown"}

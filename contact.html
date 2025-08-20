@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — StoriesHub</title>
+  <meta name="description" content="Get in touch with StoriesHub.">
+  <meta property="og:title" content="Contact — StoriesHub">
+  <meta property="og:description" content="Get in touch with StoriesHub.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/assets/favicon.png">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+<header class="bg-white shadow p-4">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <a href="/index.html" class="flex items-center gap-2">
+      <img src="/assets/logo.svg" alt="StoriesHub" class="w-8 h-8">
+      <span class="text-2xl font-bold text-indigo-600">StoriesHub</span>
+    </a>
+    <nav class="text-sm md:text-base">
+      <a href="/index.html" class="mx-2 hover:text-indigo-600">Home</a>
+      <a href="/about.html" class="mx-2 hover:text-indigo-600">About</a>
+      <a href="/contact.html" class="mx-2 hover:text-indigo-600">Contact</a>
+      <a href="/terms.html" class="mx-2 hover:text-indigo-600">Terms</a>
+      <a href="/admin/index.html" class="ml-2 inline-block bg-indigo-600 text-white px-3 py-1 rounded-full hover:bg-indigo-700">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<section class="max-w-3xl mx-auto px-4 py-12">
+  <h1 class="text-3xl font-bold mb-4">Contact</h1>
+  <p class="text-gray-700 leading-7 mb-6">Have feedback or want to report an issue? Send us a message.</p>
+  <form id="contactForm" class="bg-white p-6 rounded-2xl shadow grid gap-4">
+    <input type="text" id="cName" placeholder="Your name" class="border rounded-lg px-3 py-2" required>
+    <input type="email" id="cEmail" placeholder="Your email" class="border rounded-lg px-3 py-2" required>
+    <textarea id="cMsg" placeholder="Your message" class="border rounded-lg px-3 py-2 h-32" required></textarea>
+    <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg w-max">Send</button>
+    <p id="contactNote" class="text-sm text-gray-500">This demo sends via your email client.</p>
+  </form>
+</section>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('cName').value;
+  const email = document.getElementById('cEmail').value;
+  const msg = document.getElementById('cMsg').value;
+  const mailto = `mailto:hello@storieshub.local?subject=Message from ${name}&body=From: ${name} <${email}>%0D%0A%0D%0A${encodeURIComponent(msg)}`;
+  window.location.href = mailto;
+});
+</script>
+
+<footer class="bg-white shadow-inner mt-12">
+  <div class="max-w-6xl mx-auto p-6 text-center text-gray-500">
+    © 2025 StoriesHub • Built with ❤️ on GitHub Pages
+  </div>
+</footer>
+<script src="/assets/scripts.js"></script>
+</body>
+</html>
